@@ -1,0 +1,106 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "BROKHEAVEN | ZIRP HUB💀",
+   LoadingTitle = "💀ZIRP Hub💀",
+   LoadingSubtitle = "by zirosemz",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "ZIRP Hub"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided",
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local MainTab = Window:CreateTab("🏡 Home", nil) -- Title, Image
+
+Rayfield:Notify({
+   Title = "Executed Successfully!",
+   Content = "Enjoy!",
+   Duration = 8.5,
+   Image = nil,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay",
+         Callback = function()
+         print("The user tapped Okey!")
+      end
+   },
+},
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Ice Hub Script",
+   Callback = function()
+   loadstring(game:HttpGet("https://scriptblox.com/raw/Brookhaven-RP-IceHub-Brookhaven-8460"))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Chat Draw",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/zirozirp/zerphub/main/Chat%20Draw",true))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "InfiniteYeld",
+   Callback = function()
+   loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Chat Spy",
+   Callback = function()
+   loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-FE-l-ROBLOX-PRIVATE-MESSAGE-SPY-l-UNIVERSAL-SCRIPT-l-OP-11189"))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Bad Word Bypass",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/synnyyy/synergy/additional/betterbypasser", true))({
+    Method = 1, -- o método 1 é o método principal. O método 2 é emojis. O método 3 é transparência total, sem símbolos especiais.
+    Keybind = "f", -- Geralmente o padrão é F. Você pode alterar esse atalho de teclado substituindo a string por uma letra. Deve ser minúsculo
+    ShowMethodDictionary = true -- Mostra a lista completa de palavras que você pode dizer com o método. Pressione F9 para ver este dicionário.
+})
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Slided Fov",
+   Callback = function()
+local camera = workspace.CurrentCamera
+local settings = {
+    ["Aspect Ratio"] = true,
+    ["Ratio Value"] = 0.6
+}
+
+local oldNewindex
+
+oldNewindex = hookmetamethod(game, "__newindex", function(object, propertyName, propertyValue)
+    if object == camera and propertyName == "CFrame" then
+        if settings["Aspect Ratio"] then
+            propertyValue = propertyValue * CFrame.new(0, 0, 0, 1, 0, 0, 0, settings["Ratio Value"], 0, 0, 0, 1)
+        end
+    end
+    return oldNewindex(object, propertyName, propertyValue)
+end)
+   end,
+})
+
